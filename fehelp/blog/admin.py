@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import *
 
+from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')  # поля для отображения в админке
     list_display_links = ('id', 'title')  # наименования которые будут ссылкой в админ
@@ -29,3 +32,4 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagsAdmin)
 admin.site.register(Post, PostAdmin)
+

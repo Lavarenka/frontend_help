@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import *
+from django.db.models import F
 
 
 class Home(ListView):
@@ -11,7 +12,7 @@ class Home(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Shpargalka'
+        context['title'] = 'HOME'
         return context
 
 class PostByCategory(ListView):
@@ -28,14 +29,16 @@ class PostByCategory(ListView):
         context['title'] = Category.objects.get(slug=self.kwargs['slug'])
         return context
 
+class GetPost(DetailView):
+    model = Post
+    template_name = 'blog/single.html'
+    context_object_name = 'post'
 
-def index(request):
-    return render(request, 'blog/index.html')
-
-def get_category(request, slug):
-    return render(request, 'blog/category.html')
-
-def get_post(request, slug):
-    return render(request, 'blog/category.html')
-
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        #для счетчика просмотров
+        self.object.views = F('views') + 1
+        self.object.save()
+        self.object.refresh_from_db()
+        return context
 

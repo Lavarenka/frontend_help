@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('blog.urls')),
 ]
 
+
 if settings.DEBUG:
     from django.urls import include, path
 

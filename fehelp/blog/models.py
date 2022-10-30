@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django_ckeditor_5.fields import CKEditor5Field
 
 '''
 category
@@ -64,3 +65,4 @@ class Post(models.Model):
         verbose_name = 'Статья'  # ед число
         verbose_name_plural = 'Статьи'  # мн число
         ordering = ['-created_at']  # sort
+

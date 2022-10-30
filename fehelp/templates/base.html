@@ -1,0 +1,65 @@
+{% load static %}
+{% load cache %}
+<!--не забыть добавить что кешировать-->
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,900,100italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap"
+            rel="stylesheet"/>
+    <title>{% block title %}Shpargalka{% endblock %}</title>
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+<div class="wrapper">
+    {% include 'inc/_header.html' %}
+
+
+    <main class="page">
+        <section class="main__container _container">
+            <div class="main__block _block">
+                <div class="block__title _title">
+                    <h2>Все статьи</h2>
+                </div>
+                <div class="main__block-content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+</div>
+</section>
+</main>
+<footer class="footer">
+    <section class="footer__container _container">
+        <div class="footer__content">
+            <div class="footer__logos">
+                <div class="footer__logoVK">
+                    <img src="/img/logos/logoVK.png" alt="" class="">
+                </div>
+                <div class="footer__logoInst">
+                    <img src="/img/logos/logoInst.png" alt="" class="">
+                </div>
+                <div class="footer__logoTele">
+                    <img src="/img/logos/logoTele.png" alt="">
+                </div>
+            </div>
+            <div class="footer__title">
+                <a href="##">b&b CorporationTechnology++</a>
+            </div>
+        </div>
+    </section>
+</footer>
+</div>
+</body>
+
+
+</html>
+
+
+
+
+

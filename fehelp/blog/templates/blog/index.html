@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+<div class="content-block">
+    <div class="content-block__src">
+        <div class="content-block__image">
+            {% if post.pfoto %}
+            <img src="{{ post.pfoto.url }}" alt="{{post.title}}" >
+            {% else %}
+            <img src="#" alt="" >
+            {% endif %}
+        </div>
+        <div class="content-block__title">
+            <a href="" class="title__link">
+                <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
+            </a>
+        </div>
+        <p>Категория: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+        <div class="content-block__text">{{post.mini_content|safe}}</div>
+        <h4>Количество просмотров: {{ post.views }}</h4>
+        <h4>{{post.created_at|date:"j E Y"}}</h4>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

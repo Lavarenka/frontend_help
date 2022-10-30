@@ -1,0 +1,12 @@
+<nav class="header__menu _menu {{ menu_class }}">
+    <ul class="menu__list">
+        <li class="menu__item">
+            <a href="{% url 'home' %}" class="menu__link">HOME</a>
+        </li>
+        {% for item in categories %}
+        <li class="menu__item">
+            <a href="{{ item.get_absolute_url }}" class="menu__link">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -17,9 +17,13 @@
                 <h3><a href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
             </a>
         </div>
+        <hr>
         <p>Категория: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+        <hr>
         <div class="content-block__text">{{post.content|safe}}</div>
+        <hr>
         <h4>Количество просмотров: {{ post.views }}</h4>
+        <hr>
         <h4>{{post.created_at|date:"j E Y"}}</h4>
     </div>
 </div>

@@ -20,6 +20,7 @@
         </div>
         <hr>
         <p>Категория: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+        <hr>
         <div class="content-block__text">{{post.mini_content|safe}}</div>
         <hr>
         <h4>Количество просмотров: {{ post.views }}</h4>
